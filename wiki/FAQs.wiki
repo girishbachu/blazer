@@ -1,0 +1,38 @@
+#summary Frequently Asked Questions
+#labels Featured,Phase-Support
+
+= FAQs =
+
+*Q:* _What are the system requirements for running Blazer?_
+
+*A:* A computer with the standard Java Runtime Environment (version 1.6 or later) and Burp Suite (Free or Professional) installed.
+
+
+-----
+
+*Q:* _Blazer is a "gray-box" testing tool. What does it mean?_
+
+*A:* The source code or the portable code (bytecode) for the application under scrutiny should be available. During vulnerability research analysis, this is a realistic assumption as the tester has usually full control over the testing environment.
+
+-----
+
+*Q:* _What is the "# Permutations" option? How to properly set it?_
+
+*A:* The "# Permutations" represents the number of AMF messages for each method signature that Blazer is going to generate. This parameter is crucial for the entire analysis as it impacts directly the likelihood of generating semantically valid objects for the application under scrutiny. Incrementing the number of permutations increases the number of Java objects generated for a specific AMF method signature and populated with different data. Obviously, this parameter also increases the total number of requests and the overall time for the analysis.
+ 
+-----
+
+*Q:* _Is Blazer a Flex/Flash/AMF protocol fuzzer?_
+
+*A:* No! Blazer is a tool for testing AMF-based applications. It has been designed and implemented to test applications developed with Flex and using BlazeDS (or equivalents).
+
+-----
+
+*Q:* _How to improve Blazer's configuration?_
+
+*A:* Optimize the number of permutations, depending on method’s arguments complexity. Make sure that all data pools for primitive types and String are relevant for the application under analysis. Balance “good” strings and “bad” attack vectors.
+
+ 
+
+
+
