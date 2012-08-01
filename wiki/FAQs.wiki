@@ -16,7 +16,7 @@
 
 -----
 
-*Q:* _What is the "# Permutations" option? How to properly set it?_
+*Q:* _What is the "# Permutations" configuration option?_
 
 *A:* The "# Permutations" represents the number of AMF messages for each method signature that Blazer is going to generate. This parameter is crucial for the entire analysis as it impacts directly the likelihood of generating semantically valid objects for the application under scrutiny. Incrementing the number of permutations increases the number of Java objects generated for a specific AMF method signature and populated with different data. Obviously, this parameter also increases the total number of requests and the overall time for the analysis.
  
@@ -33,6 +33,4 @@
 *A:* Optimize the number of permutations, depending on method’s arguments complexity. Make sure that all data pools for primitive types and String are relevant for the application under analysis. Balance “good” strings and “bad” attack vectors.
 
  
-
-
 
