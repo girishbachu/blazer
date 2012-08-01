@@ -20,35 +20,34 @@ http://i.imgur.com/wmzS4.png
 
 At the top of Blazer’s window, five tabs guide the user throughout the tool configuration:
 
- # *Application Libraries*
+=== 1. Application Libraries ===
 
 This tab allows to include all application artifacts, including application classes implementing the remote methods as well as application libraries. The current release of Blazer supports JAR files only. From the user’s perspective, these resources are typically available in the application server web-
 root, under “/WEB-INF/”.
 
 http://i.imgur.com/lwVzN.png
 
- # *Remote Method Signatures*
+=== 2. Remote Method Signatures ===
 
 Blazer automatically retrieves public method signatures from the application libraries. This tab allows to select all methods under scrutiny, filtering based on annotation or type.
 
 http://i.imgur.com/Q9Ulx.png
 
- # *General Options and Data Pools*
+=== 3. General Options and Data Pools ===
 
 Object generation and fuzzing can be precisely customized from the user interface.
 From this tab, users can select the number of threads, the total number of permutations for each iteration, common attack payloads and data pools containing “good” data. For further details on how to properly tune Blazer, please refer to the original [http://blazer.googlecode.com/files/BH2012_LucaCarettoni_WP_FINAL.pdf whitepaper] and [http://blazer.googlecode.com/files/BH2012_LucaCarettoni_PRESO_FINAL.pdf presentation].
 
 http://i.imgur.com/s1dqi.png
 
- # *Status*
+=== 4. Status ===
 
 This tab allows to control the objects generation or fuzzing progress. It provides an overview of the total number of requests, permutations, overall time, time to finish and speed measured in requests/second. Also, this interface allows to pause, restore and stop current tasks.
 
 http://i.imgur.com/VEfrW.png
 
- # *BeanShell*
+=== 5. BeanShell ===
 
 Fuzzing is just the first step. Discovering and exploiting vulnerabilities requires troubleshooting and trial-and-error testing. In several cases, security professionals need an easy way to customize a specific AMF message and send it over the wire multiple times. Blazer embeds a BeanShell console, automatically importing all required application libraries. Advanced users can build custom messages in few instructions by using Blazer internal methods.
 
 http://i.imgur.com/HQdYv.png
-
