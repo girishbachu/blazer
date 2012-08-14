@@ -32,5 +32,8 @@
 
 *A:* Optimize the number of permutations, depending on method’s arguments complexity. Make sure that all data pools for primitive types and String are relevant for the application under analysis. Balance “good” strings and “bad” attack vectors.
 
- 
+-----
 
+*Q:* _Does Blazer really works?_
+
+*A:* Surprisingly enough, yes it does. Part of the Blazer's codebase has been used on several real-life projects working with complex AMF-based applications. For instance, [http://seclists.org/bugtraq/2012/Aug/79 CVE-2012-3248] and [http://seclists.org/bugtraq/2012/Aug/80 CVE-2012-3249] have been uncovered using this tool.  
