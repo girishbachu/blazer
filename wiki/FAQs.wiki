@@ -7,6 +7,15 @@
 
 *A:* A computer with the standard Java Runtime Environment (version 1.6 or later) and Burp Suite (Free or Professional) installed.
 
+-----
+
+*Q:* _Using Burp with Blazer, I get the following exception :_
+
+`Exception in thread "Thread-54" java.lang.NoSuchMethodError: flex.messaging.io.amf.client.AMFConnection.setProxy(Ljava/net/Proxy;)V`
+
+*A:* To fix this issue, change the order of the JARs in your classpath. See [http://code.google.com/p/blazer/wiki/Usage How To Start] for more details.
+
+The reason for this exception is the following: Burp Free (1.4.01) and old versions of Burp Pro include an outdated version of the Adobe Flex libraries. If you include the Burp's JAR first, it is going to override the newest Adobe Flex classes which are already embedded within Blazer. In future, I expect all versions of Burp to include the newest Flex libraries. As for now, inverting the JARs should fix the problem.  
 
 -----
 
