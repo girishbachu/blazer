@@ -5,11 +5,13 @@
 
 On Windows, it is possible to launch Burp and Blazer with the following command:
 
-`java -classpath burp.jar;Blazer.jar burp.StartBurp`
+`java -classpath Blazer.jar;burp.jar burp.StartBurp`
 
 On Linux and Mac OS X, use a colon character instead of the semi-colon as the classpath separator:
 
-`java -classpath burp.jar:Blazer.jar burp.StartBurp` 
+`java -classpath Blazer.jar;burp.jar burp.StartBurp` 
+
+*Important:* If you are using an old version of Burp, the order of the JARs matter! Burp Free (1.4.01) and old versions of Burp Pro include an outdated version of the Adobe Flex libraries. 
 
 Upon launching Burp, it is possible to verify that Blazer was properly loaded by checking the _"Alerts"_ notification tab. At this point, Blazer can be invoked by using a context menu available from within Burp tools. Please note that the tool detects and verifies the presence of valid Flex’s “RemotingMessage” objects within HTTP requests/responses.
 
