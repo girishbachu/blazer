@@ -46,3 +46,20 @@ The reason for this exception is the following: Burp Free (1.4.01) and old versi
 *Q:* _Does Blazer really works?_
 
 *A:* Surprisingly enough, yes it does. Part of the Blazer's codebase has been used on several real-life projects working with complex AMF-based applications. For instance, [http://seclists.org/bugtraq/2012/Aug/79 CVE-2012-3248] and [http://seclists.org/bugtraq/2012/Aug/80 CVE-2012-3249] have been uncovered using this tool.  
+
+-----
+
+*Q:* _How to quickly test Blazer?_
+
+*A:* One of the easiest way to test Blazer is using Adobe BlazeDS turnkey as application target. BlazeDS turnkey server is a ready-to-use version of Tomcat in which the BlazeDS framework has already been deployed along with sample applications.
+
+
+  # Make sure that you have a recent Java Runtime Environment installed, and that the `JAVA_HOME` environment variable points to that installation
+  # Download Adobe turnkey from [https://www.adobe.com/cfusion/entitlement/index.cfm?e=lc_blazeds the official Adobe webpage]
+  # Unzip the file (e.g. `blazeds-turnkey-4.0.1.21287.zip`)
+  # Start Tomcat with `./blazeds-turnkey-4.0.1.21287/tomcat/bin/startup.sh`
+  # A sample database is also required for some sample applications. Go to `./blazeds-turnkey-4.0.1.21287/sampledb/`
+  # Start the db with `./startdb.sh`
+ # Point your browser to [http://127.0.0.1:8400/ http://127.0.0.1:8400/]
+
+Note: On Windows platform, you have to use the correspondent `.bat` scripts
