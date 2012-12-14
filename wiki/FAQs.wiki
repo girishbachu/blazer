@@ -60,6 +60,6 @@ The reason for this exception is the following: Burp Free (1.4.01) and old versi
   # Start Tomcat with `./blazeds-turnkey-4.0.1.21287/tomcat/bin/startup.sh`
   # A sample database is also required for some sample applications. Go to `./blazeds-turnkey-4.0.1.21287/sampledb/`
   # Start the db with `./startdb.sh`
- # Point your browser to [http://127.0.0.1:8400/ http://127.0.0.1:8400/]
+  # Point your browser to [http://127.0.0.1:8400/ http://127.0.0.1:8400/]
 
 Note: On Windows platform, you have to use the correspondent `.bat` scripts
