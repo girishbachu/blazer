@@ -15,8 +15,9 @@ On Linux and Mac OS X, use a colon character instead of the semi-colon as the cl
 
 Upon launching Burp, it is possible to verify that Blazer was properly loaded by checking the _"Alerts"_ notification tab. At this point, Blazer can be invoked by using a context menu available from within Burp tools. Please note that the tool detects and verifies the presence of valid Flex’s “RemotingMessage” objects within HTTP requests/responses.
 
+As of Burp Suite v1.5.01, Burp Extender uses a new API that it's partially backward compatible. Starting from Blazer v0.3, the plugin has been improved to support both old and new Burp Extender APIs.
 
-http://i.imgur.com/wmzS4.png
+http://i.imgur.com/0SWQD.png
 
 = Usage =
 
@@ -53,3 +54,11 @@ http://i.imgur.com/VEfrW.png
 Fuzzing is just the first step. Discovering and exploiting vulnerabilities requires troubleshooting and trial-and-error testing. In several cases, security professionals need an easy way to customize a specific AMF message and send it over the wire multiple times. Blazer embeds a BeanShell console, automatically importing all required application libraries. Advanced users can build custom messages in few instructions by using Blazer internal methods.
 
 http://i.imgur.com/HQdYv.png
+
+=== Blazer Security Manager ===
+
+http://i.imgur.com/aIqea.png
+
+=== Export (AMF2XML) ===
+
+http://i.imgur.com/usvJo.png
