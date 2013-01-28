@@ -15,7 +15,7 @@ On Linux and Mac OS X, use a colon character instead of the semi-colon as the cl
 
 Upon launching Burp, it is possible to verify that Blazer was properly loaded by checking the _"Alerts"_ notification tab. At this point, Blazer can be invoked by using a context menu available from within Burp tools. Please note that the tool detects and verifies the presence of valid Flex’s “RemotingMessage” objects within HTTP requests/responses.
 
-As of Burp Suite v1.5.01, Burp Extender uses a new API that it's partially backward compatible. Starting from Blazer v0.3, the plugin has been improved to support both old and new Burp Extender APIs.
+As of Burp Suite v1.5.01, Burp Extender uses a new API that it's partially backward compatible. Starting from Blazer v0.3, the plugin has been improved to support both old and new Burp Extender APIs. Standard output and error can be displayed within Burp Extender, to a file or in the console screen.
 
 http://i.imgur.com/0SWQD.png
 
@@ -57,8 +57,22 @@ http://i.imgur.com/HQdYv.png
 
 === Blazer Security Manager ===
 
+Starting from version 0.3, Blazer allows to enable a custom security manager in order to prevent involuntary IO operations. Blazer security manager is _disabled_ by default.
+
+The rationale behind the introduction of this feature is to prevent any malicious action caused by application libraries. Blazer uses Java reflection and fairly complex heuristics to automatically instantiate and populate objects using the application libraries. Application objects are created on the tester's computer as well as methods are locally invoked to populate attributes before sending the AMF message to the remote service. As a result, untrusted application libraries may end up writing files, opening network sockets or other involuntary IO operations.
+
+To enable the custom Blazer Java security manager, use the correspondent context menu item available from within Burp tools.
+  
+
 http://i.imgur.com/aIqea.png
 
+Please note that any illegal operation detected by Blazer will result in a forced shutdown of Burp Suite and Blazer. Even though the custom security manager has been design to prevent false positives, be aware that this may happen while fuzzing your application. 
+
+http://i.imgur.com/whqQOre.png
+
 === Export (AMF2XML) ===
+
+Starting from version 0.3, Blazer allows to export AMF requests and responses. AMF messages can be exported to XML within the console or to a file. Using this functionality, you can select multiple AMF messages (e.g. within Burp Proxy history) and export all content in just a few clicks.
+
 
 http://i.imgur.com/usvJo.png
