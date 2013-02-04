@@ -25,7 +25,7 @@ At the top of Blazer’s window, five tabs guide the user throughout the tool co
 
 === 1. Application Libraries ===
 
-This tab allows to include all application artifacts, including application classes implementing the remote methods as well as application libraries. The current release of Blazer supports JAR files only. From the user’s perspective, these resources are typically available in the application server web-
+This tab allows to include all application artifacts, including application classes implementing the remote methods as well as application libraries. Starting from Blazer v0.3, it is possible to import JARs, Java classes and source files. From the user’s perspective, these resources are typically available in the application server web-
 root, under “/WEB-INF/”.
 
 http://i.imgur.com/lwVzN.png
