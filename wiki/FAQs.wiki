@@ -66,6 +66,6 @@ Note: On Windows platform, you have to use the correspondent `.bat` scripts
 
 -----
 
-*Q:* _Any suggestion on how to improve testing?_
+*Q:* _Any suggestion on how to improve fuzzing?_
 
-*A:* 
+*A:* Have a look at this blog post: [http://blog.nibblesec.org/2013/02/effective-amf-remoting-message-fuzzing.html Effective AMF RemotingMessage Fuzzing with Blazer]
