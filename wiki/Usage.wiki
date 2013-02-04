@@ -59,7 +59,7 @@ http://i.imgur.com/HQdYv.png
 
 Starting from version 0.3, Blazer allows to enable a custom security manager in order to prevent involuntary IO operations. Blazer security manager is _disabled_ by default.
 
-The rationale behind the introduction of this feature is to prevent any malicious action caused by application libraries. Blazer uses Java reflection and fairly complex heuristics to automatically instantiate and populate objects using the application libraries. Application objects are created on the tester's computer as well as methods are locally invoked to populate attributes before sending the AMF message to the remote service. As a result, untrusted application libraries may end up writing files, opening network sockets or other involuntary IO operations.
+The rationale behind the introduction of this feature is to prevent any malicious action caused by application libraries. Blazer uses Java reflection and fairly complex heuristics to automatically instantiate and populate objects using the application libraries. Application objects are created on the tester's computer and methods are locally invoked to populate attributes before sending the AMF message to the remote service. As a result, untrusted application libraries may end up writing files, opening network sockets or other involuntary IO operations.
 
 To enable the custom Blazer Java security manager, use the correspondent context menu item available from within Burp tools.
   
