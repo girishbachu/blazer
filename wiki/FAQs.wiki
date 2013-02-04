@@ -21,7 +21,7 @@ The reason for this exception is the following: Burp Free (1.4.01) and old versi
 
 *Q:* _Blazer is a "gray-box" testing tool. What does it mean?_
 
-*A:* The source code or the portable code (bytecode) for the application under scrutiny should be available. During vulnerability research analysis, this is a realistic assumption as the tester has usually full control over the testing environment.
+*A:* The source code or the portable code (bytecode) for the application under scrutiny should be available. During vulnerability research analysis, this is a realistic assumption as the tester has usually full control over the testing environment. 
 
 -----
 
