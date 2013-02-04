@@ -72,7 +72,7 @@ http://i.imgur.com/whqQOre.png
 
 === Export (AMF2XML) ===
 
-Starting from version 0.3, Blazer allows to export AMF requests and responses. AMF messages can be exported to XML within the console or to a file. Using this functionality, you can select multiple AMF messages (e.g. within Burp Proxy history) and export all content in just a few clicks.
+Starting from version 0.3, Blazer allows to export AMF requests and responses. AMF messages can be exported to XML within the console or to a file. Using this functionality, you can select multiple AMF messages (e.g. within Burp Proxy history) and export all content in just a few clicks. This is extremely useful for reporting.
 
 
 http://i.imgur.com/usvJo.png
