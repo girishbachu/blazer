@@ -1,0 +1,75 @@
+# How To Start #
+
+On Windows, it is possible to launch Burp and Blazer with the following command:
+
+`java -classpath Blazer.jar;burp.jar burp.StartBurp`
+
+On Linux and Mac OS X, use a colon character instead of the semi-colon as the classpath separator:
+
+`java -classpath Blazer.jar;burp.jar burp.StartBurp`
+
+**Important:** If you are using an old version of Burp, the order of the JARs matters! Burp Free (1.4.01) and old versions of Burp Pro include an outdated version of the Adobe Flex libraries.
+
+Upon launching Burp, it is possible to verify that Blazer was properly loaded by checking the _"Alerts"_ notification tab. At this point, Blazer can be invoked by using a context menu available from within Burp tools. Please note that the tool detects and verifies the presence of valid Flex’s “RemotingMessage” objects within HTTP requests/responses.
+
+_As of Burp Suite v1.5.01, Burp Extender uses a new API that it's partially backward compatible. Starting from Blazer v0.3, the plugin has been improved to support both old and new Burp Extender APIs. Standard output and error can be displayed within Burp Extender, to a file or in the console screen. Also, it is possible to load the plugin at runtime using the extender tab of Burp Suite._
+
+![http://i.imgur.com/0SWQD.png](http://i.imgur.com/0SWQD.png)
+
+# Usage #
+
+At the top of Blazer’s window, five tabs guide the user throughout the tool configuration:
+
+### 1. Application Libraries ###
+
+This tab allows to include all application artifacts, including application classes implementing the remote methods as well as application libraries. Starting from Blazer v0.3, it is possible to import JARs, Java classes and source files. From the user’s perspective, these resources are typically available in the application server web-
+root, under “/WEB-INF/”.
+
+![http://i.imgur.com/lwVzN.png](http://i.imgur.com/lwVzN.png)
+
+### 2. Remote Method Signatures ###
+
+Blazer automatically retrieves public method signatures from the application libraries. This tab allows to select all methods under scrutiny, filtering based on annotation or type.
+
+![http://i.imgur.com/Q9Ulx.png](http://i.imgur.com/Q9Ulx.png)
+
+### 3. General Options and Data Pools ###
+
+Object generation and fuzzing can be precisely customized from the user interface.
+From this tab, users can select the number of threads, the total number of permutations for each iteration, common attack payloads and data pools containing “good” data. For further details on how to properly tune Blazer, please refer to the original [whitepaper](http://blazer.googlecode.com/files/BH2012_LucaCarettoni_WP_FINAL.pdf) and [presentation](http://blazer.googlecode.com/files/BH2012_LucaCarettoni_PRESO_FINAL.pdf).
+
+![http://i.imgur.com/s1dqi.png](http://i.imgur.com/s1dqi.png)
+
+### 4. Status ###
+
+This tab allows to control the objects generation or fuzzing progress. It provides an overview of the total number of requests, permutations, overall time, time to finish and speed measured in requests/second. Also, this interface allows to pause, restore and stop current tasks.
+
+![http://i.imgur.com/VEfrW.png](http://i.imgur.com/VEfrW.png)
+
+### 5. BeanShell ###
+
+Fuzzing is just the first step. Discovering and exploiting vulnerabilities requires troubleshooting and trial-and-error testing. In several cases, security professionals need an easy way to customize a specific AMF message and send it over the wire multiple times. Blazer embeds a BeanShell console, automatically importing all required application libraries. Advanced users can build custom messages in few instructions by using Blazer internal methods.
+
+![http://i.imgur.com/HQdYv.png](http://i.imgur.com/HQdYv.png)
+
+### Blazer Security Manager ###
+
+Starting from version 0.3, Blazer allows to enable a custom security manager in order to prevent involuntary IO operations. Blazer security manager is _disabled_ by default.
+
+The rationale behind the introduction of this feature is to prevent any malicious action caused by application libraries. Blazer uses Java reflection and fairly complex heuristics to automatically instantiate and populate objects using the application libraries. Application objects are created on the tester's computer and methods are locally invoked to populate attributes before sending the AMF message to the remote service. As a result, untrusted application libraries may end up writing files, opening network sockets or other involuntary IO operations.
+
+To enable the custom Blazer Java security manager, use the correspondent context menu item available from within Burp tools.
+
+
+![http://i.imgur.com/aIqea.png](http://i.imgur.com/aIqea.png)
+
+Please note that any illegal operation detected by Blazer will result in a forced shutdown of Burp Suite and Blazer. Even though the custom security manager has been design to prevent false positives, be aware that this may happen while fuzzing your application.
+
+![http://i.imgur.com/whqQOre.png](http://i.imgur.com/whqQOre.png)
+
+### Export (AMF2XML) ###
+
+Starting from version 0.3, Blazer allows to export AMF requests and responses. AMF messages can be exported to XML within the console or to a file. Using this functionality, you can select multiple AMF messages (e.g. within Burp Proxy history) and export all content in just a few clicks. This is extremely useful for reporting.
+
+
+![http://i.imgur.com/usvJo.png](http://i.imgur.com/usvJo.png)

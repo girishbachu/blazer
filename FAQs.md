@@ -1,0 +1,84 @@
+# FAQs #
+
+**Q:** _What are the system requirements for running Blazer?_
+
+**A:** A computer with the standard Java Runtime Environment (version 1.6 or later) and Burp Suite (Free or Professional) installed.
+
+
+---
+
+
+**Q:** _Using Burp with Blazer, I get the following exception :_
+
+`Exception in thread "Thread-54" java.lang.NoSuchMethodError: flex.messaging.io.amf.client.AMFConnection.setProxy(Ljava/net/Proxy;)V`
+
+**A:** To fix this issue, change the order of the JARs in your classpath. See [How To Start](http://code.google.com/p/blazer/wiki/Usage) for more details.
+
+The reason for this exception is the following: Burp Free (1.4.01) and old versions of Burp Pro include an outdated version of the Adobe Flex libraries. If you include the Burp's JAR first, it is going to override the newest Adobe Flex classes which are already embedded within Blazer. In future, I expect all versions of Burp to include the newest Flex libraries. As for now, inverting the JARs should fix the problem.
+
+
+---
+
+
+**Q:** _Blazer is a "gray-box" testing tool. What does it mean?_
+
+**A:** The source code or the portable code (bytecode) for the application under scrutiny should be available. During vulnerability research analysis, this is a realistic assumption as the tester has usually full control over the testing environment.
+
+
+---
+
+
+**Q:** _What is the "# Permutations" configuration option?_
+
+**A:** The "# Permutations" represents the number of AMF messages for each method signature that Blazer is going to generate. This parameter is crucial for the entire analysis as it impacts directly the likelihood of generating semantically valid objects for the application under scrutiny. Incrementing the number of permutations increases the number of Java objects generated for a specific AMF method signature and populated with different data. Obviously, this parameter also increases the total number of requests and the overall time for the analysis.
+
+
+---
+
+
+**Q:** _Is Blazer a Flex/Flash/AMF protocol fuzzer?_
+
+**A:** No! Blazer is a tool for testing AMF-based applications. It has been designed and implemented to test applications developed with Flex and using BlazeDS (or equivalents).
+
+
+---
+
+
+**Q:** _How to improve Blazer's configuration?_
+
+**A:** Optimize the number of permutations, depending on method’s arguments complexity. Make sure that all data pools for primitive types and String are relevant for the application under analysis. Balance “good” strings and “bad” attack vectors.
+
+
+---
+
+
+**Q:** _Does Blazer really works?_
+
+**A:** Surprisingly yes, it does. Part of the Blazer's codebase has been used on several real-life projects working with complex AMF-based applications. For instance, [CVE-2012-3248](http://seclists.org/bugtraq/2012/Aug/79) and [CVE-2012-3249](http://seclists.org/bugtraq/2012/Aug/80) have been uncovered using this tool.
+
+
+---
+
+
+**Q:** _How to quickly test Blazer?_
+
+**A:** One of the easiest way to test Blazer is using Adobe BlazeDS turnkey as application target. BlazeDS turnkey server is a ready-to-use version of Tomcat in which the BlazeDS framework has already been deployed along with sample applications.
+
+
+  1. Make sure that you have a recent Java Runtime Environment installed, and that the `JAVA_HOME` environment variable points to that installation
+  1. Download Adobe turnkey from [the official Adobe webpage](https://www.adobe.com/cfusion/entitlement/index.cfm?e=lc_blazeds)
+  1. Unzip the file (e.g. `blazeds-turnkey-4.0.1.21287.zip`)
+  1. Start Tomcat with `./blazeds-turnkey-4.0.1.21287/tomcat/bin/startup.sh`
+  1. A sample database is also required for some sample applications. Go to `./blazeds-turnkey-4.0.1.21287/sampledb/`
+  1. Start the db with `./startdb.sh`
+  1. Point your browser to [http://127.0.0.1:8400/](http://127.0.0.1:8400/)
+
+Note: On Windows platform, you have to use the correspondent `.bat` scripts
+
+
+---
+
+
+**Q:** _Any suggestion on how to improve fuzzing?_
+
+**A:** Have a look at this blog post: [Effective AMF RemotingMessage Fuzzing with Blazer](http://blog.nibblesec.org/2013/02/effective-amf-remoting-message-fuzzing.html)
